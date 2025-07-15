@@ -80,7 +80,7 @@ export default function DashboardLayout({
               className="flex justify-start items-center space-x-1 hover:cursor-pointer"
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             >
-              <h6 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 lg:font-bold hover:transition-all duration-300 ease-in-out lg:text-2xl font-bold lg:mt-4">
+              <h6 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 lg:font-bold hover:transition-all duration-300 ease-in-out text-xl lg:text-2xl font-bold lg:mt-4">
                 Wallet
               </h6>
             </div>
@@ -94,7 +94,7 @@ export default function DashboardLayout({
             </button>
           </div>
           <ul className="font-medium lg:mt-12">
-            <div className="absolute bottom-20 sm:bottom-10">
+            <div className="absolute bottom-8 sm:bottom-10">
               <li>
                 <Link
                   href="/"
