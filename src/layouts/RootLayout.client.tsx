@@ -4,8 +4,10 @@ import dynamic from 'next/dynamic';
 
 import '../../src/styles/globals.css';
 
+import Loading from '@/app/loading';
 import { AuthSync } from '@/components/shared/AuthSync';
 import Providers from '@/providers/Providers';
+import { useEffect, useState } from 'react';
 
 //Dynamic imports for client-side only components
 const DynamicAOSInit = dynamic(
@@ -18,11 +20,21 @@ const DynamicToastProvider = dynamic(
 );
 
 const RootLayoutClient = ({ children }: { children: React.ReactNode }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <Loading />;
+  }
+
   return (
     <Providers>
       <AuthSync />
       <main>
-        <DynamicAOSInit />
+        {mounted && <DynamicAOSInit />}
         <DynamicToastProvider />
         {children}
       </main>
