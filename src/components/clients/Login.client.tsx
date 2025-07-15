@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouteProtection } from '@/hooks/useRouteProtection';
 import { DEMO_CREDENTIALS, validateCredentials } from '@/lib/auth-actions';
 import { LoginFormSchema } from '@/types/Forms.types';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -15,9 +14,6 @@ import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { toast } from 'sonner';
 
 const Login = () => {
-  // Protect this route - should NOT be authenticated
-  useRouteProtection(false);
-
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
