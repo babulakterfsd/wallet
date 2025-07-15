@@ -1,9 +1,10 @@
 'use client';
 
+import { useRouteProtection } from '@/hooks/useRouteProtection';
 import { getCurrentUser } from '@/lib/auth';
 import { logoutUser } from '@/services/actions/logoutUser';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 
@@ -12,8 +13,12 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Protect this route - require authentication
+  useRouteProtection(true);
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const user = getCurrentUser();
 
@@ -21,8 +26,8 @@ export default function DashboardLayout({
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const handleLogout = async () => {
-    await logoutUser();
+  const handleLogout = () => {
+    logoutUser(router);
   };
 
   return (

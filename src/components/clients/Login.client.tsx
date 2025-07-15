@@ -1,10 +1,11 @@
 'use client';
 
-import { DEMO_CREDENTIALS } from '@/lib/auth';
-import { loginAction } from '@/lib/auth-actions';
+import { useRouteProtection } from '@/hooks/useRouteProtection';
+import { DEMO_CREDENTIALS, validateCredentials } from '@/lib/auth-actions';
 import { LoginFormSchema } from '@/types/Forms.types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { FaSignInAlt } from 'react-icons/fa';
@@ -14,8 +15,12 @@ import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { toast } from 'sonner';
 
 const Login = () => {
+  // Protect this route - should NOT be authenticated
+  useRouteProtection(false);
+
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
 
   const {
     register,
@@ -54,7 +59,7 @@ const Login = () => {
     }
   };
 
-  const handleLogin = async (loginData: FieldValues) => {
+  const handleLogin = (loginData: FieldValues) => {
     const { email, password } = loginData;
 
     // check if email is valid
@@ -80,7 +85,7 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const result = await loginAction(email, password);
+      const result = validateCredentials(email, password);
 
       if (result?.error) {
         toast.error(result.error, {
@@ -94,7 +99,7 @@ const Login = () => {
           localStorage.removeItem('user');
         }
       } else if (result?.success) {
-        // Also set localStorage for client-side checks
+        // Set localStorage for client-side checks
         if (typeof window !== 'undefined') {
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem(
@@ -113,8 +118,8 @@ const Login = () => {
         });
         resetForm();
 
-        // Redirect to dashboard
-        window.location.href = '/dashboard';
+        // Navigate to dashboard using router (no page reload)
+        router.push('/dashboard');
       }
     } catch (error) {
       console.error('Login error:', error);

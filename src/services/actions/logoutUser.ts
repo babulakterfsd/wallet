@@ -1,8 +1,7 @@
-/* eslint-disable require-await */
-import { logoutAction } from '@/lib/auth-actions';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { toast } from 'sonner';
 
-export const logoutUser = async () => {
+export const logoutUser = (router: AppRouterInstance) => {
   // Clear localStorage
   if (typeof window !== 'undefined') {
     localStorage.removeItem('isLoggedIn');
@@ -15,6 +14,6 @@ export const logoutUser = async () => {
     icon: '👋',
   });
 
-  // Use server action to clear cookie and redirect
-  await logoutAction();
+  // Navigate to login page using router (no page reload)
+  router.push('/login');
 };

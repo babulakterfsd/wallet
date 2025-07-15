@@ -23,8 +23,8 @@ const Navbar = () => {
   const [isloggedIn, setIsLoggedin] = useState<boolean>(false);
   const router = useRouter();
 
-  const handleLogOut = async () => {
-    await logoutUser();
+  const handleLogOut = () => {
+    logoutUser(router);
     setIsLoggedin(false);
   };
 
