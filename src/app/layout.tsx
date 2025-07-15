@@ -12,7 +12,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "wallet: simple nextjs app to track user's wallet",
+  title: "Wallet: simple nextjs app to track user's wallet",
   description:
     'A simple Next.js application to track and manage your wallet transactions and balances.',
 };

@@ -24,11 +24,8 @@ const Navbar = () => {
   const router = useRouter();
 
   const handleLogOut = async () => {
-    await logoutUser(router);
+    await logoutUser();
     setIsLoggedin(false);
-    setTimeout(() => {
-      router.push('/login');
-    }, 100);
   };
 
   useEffect(() => {

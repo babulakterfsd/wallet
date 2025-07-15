@@ -1,10 +1,10 @@
 'use client';
 
-import { DEMO_CREDENTIALS, login as demoLogin } from '@/lib/auth';
+import { DEMO_CREDENTIALS } from '@/lib/auth';
+import { loginAction } from '@/lib/auth-actions';
 import { LoginFormSchema } from '@/types/Forms.types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { FaSignInAlt } from 'react-icons/fa';
@@ -16,7 +16,6 @@ import { toast } from 'sonner';
 const Login = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const router = useRouter();
 
   const {
     register,
@@ -55,7 +54,7 @@ const Login = () => {
     }
   };
 
-  const handleLogin = (loginData: FieldValues) => {
+  const handleLogin = async (loginData: FieldValues) => {
     const { email, password } = loginData;
 
     // check if email is valid
@@ -81,30 +80,54 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const loginSuccess = demoLogin(email, password);
+      const result = await loginAction(email, password);
 
-      if (loginSuccess) {
+      if (result?.error) {
+        toast.error(result.error, {
+          position: 'top-right',
+          duration: 1500,
+          icon: '❌',
+        });
+        // Clear localStorage on error
+        if (typeof window !== 'undefined') {
+          localStorage.removeItem('isLoggedIn');
+          localStorage.removeItem('user');
+        }
+      } else if (result?.success) {
+        // Also set localStorage for client-side checks
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem(
+            'user',
+            JSON.stringify({
+              email: DEMO_CREDENTIALS.email,
+              name: DEMO_CREDENTIALS.name,
+            })
+          );
+        }
+
         toast.success('Logged in successfully', {
           position: 'top-right',
           duration: 1500,
           icon: '🚀',
         });
         resetForm();
+
         // Redirect to dashboard
-        router.push('/dashboard');
-      } else {
-        toast.error('Invalid credentials. Use demo@example.com / password123', {
-          position: 'top-right',
-          duration: 1500,
-          icon: '❌',
-        });
+        window.location.href = '/dashboard';
       }
     } catch (error) {
+      console.error('Login error:', error);
       toast.error('Login failed', {
         position: 'top-right',
         duration: 1500,
         icon: '❌',
       });
+      // Clear localStorage on error
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('user');
+      }
     } finally {
       setIsLoading(false);
     }

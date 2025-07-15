@@ -3,7 +3,7 @@
 import { getCurrentUser } from '@/lib/auth';
 import { logoutUser } from '@/services/actions/logoutUser';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 
@@ -21,13 +21,8 @@ export default function DashboardLayout({
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const router = useRouter();
-
   const handleLogout = async () => {
-    await logoutUser(router);
-    setTimeout(() => {
-      router.push('/login');
-    }, 100);
+    await logoutUser();
   };
 
   return (
