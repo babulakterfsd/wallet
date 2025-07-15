@@ -2,10 +2,9 @@
 
 import ThemeToggle from '@/components/theme/Themetoggle';
 import { useRouteProtection } from '@/hooks/useRouteProtection';
-import { getCurrentUser } from '@/lib/auth';
 import { logoutUser } from '@/services/actions/logoutUser';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 
@@ -18,10 +17,7 @@ export default function DashboardLayout({
   const { isLoading, isAuthenticated } = useRouteProtection(true);
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const pathname = usePathname();
   const router = useRouter();
-
-  const user = getCurrentUser();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -84,13 +80,7 @@ export default function DashboardLayout({
               className="flex justify-start items-center space-x-1 hover:cursor-pointer"
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             >
-              <h6
-                className={`hover:transition-all duration-300 ease-in-out hover:text-primary ${
-                  pathname === '/dashboard'
-                    ? 'text-primary dark:text-primary'
-                    : 'dark:text-dim '
-                }`}
-              >
+              <h6 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 lg:font-bold hover:transition-all duration-300 ease-in-out lg:text-2xl font-bold lg:mt-4">
                 Wallet
               </h6>
             </div>
@@ -104,22 +94,6 @@ export default function DashboardLayout({
             </button>
           </div>
           <ul className="font-medium lg:mt-12">
-            <Link
-              href={`/dashboard/profile`}
-              className="lg:hidden flex items-center space-x-2 mb-4 hover:text-primary dark:hover:text-primary transition-all duration-300 ease-in-out rounded-md py-2.5 px-3 md:mt-6"
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            >
-              <li
-                className={`${
-                  pathname === '/dashboard/profile'
-                    ? 'text-primary dark:text-primary'
-                    : 'dark:text-dim'
-                }`}
-              >
-                {user?.name}
-              </li>
-            </Link>
-
             <div className="absolute bottom-20 sm:bottom-10">
               <li>
                 <Link
@@ -158,25 +132,10 @@ export default function DashboardLayout({
       </aside>
 
       <div className={`p-4 lg:p-0 ${isSidebarOpen ? 'sm:ml-64' : ''} sm:ml-64`}>
-        {/* dashboard header */}
-        <div className="py-10 hidden lg:flex justify-end items-center bg-gray-100 dark:bg-black">
-          <Link
-            href="/dashboard/profile"
-            className="flex justify-center items-center space-x-2  mr-10"
-          >
-            <li
-              className={`list-none text-md font-[500] hover:text-primary dark:hover:text-primary transition-all ease-in-out duration-300 ${
-                pathname === '/dashboard/profile'
-                  ? 'text-primary dark:text-primary'
-                  : 'dark:text-dim'
-              }`}
-            >
-              {user?.name}
-            </li>
-          </Link>
-        </div>
         {/* dashboard content */}
-        <div className="h-screen flex lg:px-10 lg:py-6">{children}</div>
+        <div className="h-screen flex justify-center items-center lg:w-2/3 mx-auto">
+          {children}
+        </div>
       </div>
     </div>
   );

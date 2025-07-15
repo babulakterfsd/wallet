@@ -41,8 +41,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between py-3">
           {/* Left Side */}
           <div className="flex-shrink-0">
-            <Link href="/" className="font-bold dark:text-dim">
-              Wallet
+            <Link href="/" className="font-bold">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 lg:text-2xl">
+                Wallet.
+              </span>
             </Link>
           </div>
 
