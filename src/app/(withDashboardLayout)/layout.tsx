@@ -6,6 +6,7 @@ import { logoutUser } from '@/services/actions/logoutUser';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { MdDashboard, MdHistory, MdHome, MdLogout } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx';
 
 export default function DashboardLayout({
@@ -94,37 +95,47 @@ export default function DashboardLayout({
             </button>
           </div>
           <ul className="font-medium lg:mt-12">
+            <li>
+              <Link
+                href="/dashboard"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <MdDashboard className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                <span className="ms-3">Dashboard</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/dashboard/transactions"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <MdHistory className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                <span className="ms-3">Transaction History</span>
+              </Link>
+            </li>
             <div className="absolute bottom-12 sm:bottom-10">
               <li>
                 <Link
                   href="/"
-                  className="cursor-pointer ms-5 text-offgray hover:text-primary group hover:transition-all duration-300 ease-in-out dark:hover:text-orange-400"
+                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 >
-                  <div
-                    className="flex items-center space-x-2"
-                    onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  >
-                    <span className="dark:text-dim hover:transition-all duration-300 ease-in-out dark:hover:text-orange-400">
-                      Back To Home
-                    </span>
-                  </div>
+                  <MdHome className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                  <span className="ms-3">Back To Home</span>
                 </Link>
               </li>
-              <li className="cursor-pointer mt-4 text-offgray hover:text-primary dark:hover:text-primary group hover:transition-all duration-300 ease-in-out">
-                <div
-                  className="flex items-center space-x-2"
-                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              <li className="mt-2">
+                <button
+                  onClick={() => handleLogout()}
+                  className="flex items-center p-2 w-full text-left text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 >
-                  <button
-                    className="dark:text-dim hover:transition-all duration-300 ease-in-out dark:hover:text-orange-400"
-                    onClick={() => handleLogout()}
-                  >
-                    Logout
-                  </button>
-                </div>
+                  <MdLogout className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                  <span className="ms-3">Logout</span>
+                </button>
               </li>
-              <li className="cursor-pointer mt-4 text-offgray hover:text-primary dark:hover:text-primary group hover:transition-all duration-300 ease-in-out">
-                <ThemeToggle />
+              <li className="mt-2">
+                <div className="flex items-center p-2">
+                  <ThemeToggle />
+                </div>
               </li>
             </div>
           </ul>
