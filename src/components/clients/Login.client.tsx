@@ -145,11 +145,11 @@ const Login = () => {
   return (
     <div className="main-container flex justify-center items-center min-h-screen">
       <div
-        className="shadow-lg dark:shadow-slate-800 pb-8 w-full md:w-10/12 lg:w-6/12 rounded-md"
+        className="shadow-lg dark:shadow-slate-800 pb-8 w-full md:w-10/12 lg:w-6/12 rounded-lg"
         data-aos="zoom-in"
         data-aos-duration="1500"
       >
-        <div className="shadow py-3 flex justify-between items-center">
+        <div className="shadow py-3 flex justify-between items-center rounded-lg">
           <h3 className="text-custom-black text-xl font-bold ml-8">
             Login to your account
           </h3>
@@ -177,7 +177,7 @@ const Login = () => {
                 type="email"
                 id="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 focus:outline-none"
-                placeholder="name@company.com"
+                placeholder="anwar@swiftreload.com"
                 {...register('email', { required: true })}
               />
               {errors.email && (

@@ -7,7 +7,7 @@ const HomepageClient = () => {
       {/* Content Section */}
       <div className="flex-1 text-center lg:text-left lg:pr-12 mb-12 lg:mb-0">
         <h1
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-3 lg:mb-6 leading-tight"
+          className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3 lg:mb-6 leading-tight"
           data-aos="fade-down"
           data-aos-duration="1000"
         >
@@ -19,7 +19,7 @@ const HomepageClient = () => {
         </h1>
 
         <p
-          className="text-md md:text-xl text-gray-600 dark:text-gray-300 mb-6 lg:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-3 lg:px-0"
+          className="text-md md:text-md text-gray-600 dark:text-gray-300 mb-6 lg:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-3 lg:px-0"
           data-aos="fade-down"
           data-aos-duration="1500"
         >
@@ -38,7 +38,7 @@ const HomepageClient = () => {
           data-aos-duration="2500"
         >
           <Link href="/dashboard">
-            <button className="btn-primary px-8 py-3 text-lg font-semibold rounded-lg hover:shadow transition-all duration-300 transform hover:scale-105">
+            <button className="btn-primary px-8 py-3 text-md font-semibold rounded-lg hover:shadow transition-all duration-300 transform hover:scale-105">
               Get Started
             </button>
           </Link>
