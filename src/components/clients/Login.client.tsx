@@ -62,7 +62,7 @@ const Login = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast.error('Invalid email address', {
-        position: 'top-right',
+        position: 'bottom-right',
         duration: 1500,
         icon: '❌',
       });
@@ -71,7 +71,7 @@ const Login = () => {
 
     if (password.length < 6) {
       toast.error('Password must be at least 6 characters long', {
-        position: 'top-right',
+        position: 'bottom-right',
         duration: 1500,
         icon: '❌',
       });
@@ -85,7 +85,7 @@ const Login = () => {
 
       if (result?.error) {
         toast.error(result.error, {
-          position: 'top-right',
+          position: 'bottom-right',
           duration: 1500,
           icon: '❌',
         });
@@ -108,7 +108,7 @@ const Login = () => {
         }
 
         toast.success('Logged in successfully', {
-          position: 'top-right',
+          position: 'bottom-right',
           duration: 1500,
           icon: '🚀',
         });
@@ -120,7 +120,7 @@ const Login = () => {
     } catch (error) {
       console.error('Login error:', error);
       toast.error('Login failed', {
-        position: 'top-right',
+        position: 'bottom-right',
         duration: 1500,
         icon: '❌',
       });
@@ -136,7 +136,7 @@ const Login = () => {
 
   const handleSignup = () => {
     toast.warning('Signup functionality is not implemented yet', {
-      position: 'top-right',
+      position: 'bottom-right',
       duration: 1500,
       icon: '⚠️',
     });
@@ -239,7 +239,7 @@ const Login = () => {
             <span className="text-sm">
               <FaDatabase />
             </span>
-            <span className="ml-2 text-sm">Login With Demo Account</span>
+            <span className="ml-2 text-sm">Fill With Demo Account</span>
           </div>
 
           {/* Demo credentials info */}

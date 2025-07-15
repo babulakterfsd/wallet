@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { HiOutlineMenu } from 'react-icons/hi';
+import ThemeToggle from '../theme/Themetoggle';
 
 const menuItems = [
   { name: 'Home', path: '/', current: false },
@@ -55,14 +56,23 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Login/Logout Button */}
-          <div className="hidden md:flex items-center">
-            <button
-              className="btn-primary md:ml-12 lg:ml-16 w-20"
-              onClick={isloggedIn ? handleLogOut : () => router.push('/login')}
-            >
-              {isloggedIn ? 'Logout' : 'Login'}
-            </button>
+          <div className="flex gap-x-2 items-center">
+            {/* Theme Toggle */}
+            <div className="hidden md:flex items-center">
+              <ThemeToggle />
+            </div>
+
+            {/* Login/Logout Button */}
+            <div className="hidden md:flex items-center">
+              <button
+                className="btn-primary w-20"
+                onClick={
+                  isloggedIn ? handleLogOut : () => router.push('/login')
+                }
+              >
+                {isloggedIn ? 'Logout' : 'Login'}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu (Drawer) */}

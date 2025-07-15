@@ -9,7 +9,7 @@ export const logoutUser = (router: AppRouterInstance) => {
   }
 
   toast('Logged out successfully', {
-    position: 'top-right',
+    position: 'bottom-right',
     duration: 1500,
     icon: '👋',
   });

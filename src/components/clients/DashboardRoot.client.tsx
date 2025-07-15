@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 const DashboardRootClient = () => {
   const handleToast = () => {
     toast.success('Toaster setup is completed!', {
-      position: 'top-right',
+      position: 'bottom-right',
       icon: '👏',
       duration: 1500,
     });
