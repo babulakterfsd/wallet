@@ -1,0 +1,124 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "date": "2025-07-14",
+      "description": "Coffee at Starbucks",
+      "amount": -4.5,
+      "category": "Food & Drinks",
+      "type": "expense"
+    },
+    {
+      "id": 2,
+      "date": "2025-07-13",
+      "description": "Salary",
+      "amount": 1500,
+      "category": "Income",
+      "type": "income"
+    },
+    {
+      "id": 3,
+      "date": "2025-07-12",
+      "description": "Grocery shopping",
+      "amount": -45.99,
+      "category": "Food & Drinks",
+      "type": "expense"
+    },
+    {
+      "id": 4,
+      "date": "2025-07-11",
+      "description": "Online subscription",
+      "amount": -9.99,
+      "category": "Entertainment",
+      "type": "expense"
+    },
+    {
+      "id": 5,
+      "date": "2025-07-10",
+      "description": "Freelance project",
+      "amount": 450,
+      "category": "Income",
+      "type": "income"
+    },
+    {
+      "id": 6,
+      "date": "2025-07-09",
+      "description": "Gas station",
+      "amount": -35.2,
+      "category": "Transportation",
+      "type": "expense"
+    },
+    {
+      "id": 7,
+      "date": "2025-07-08",
+      "description": "Amazon purchase",
+      "amount": -78.99,
+      "category": "Shopping",
+      "type": "expense"
+    },
+    {
+      "id": 8,
+      "date": "2025-07-07",
+      "description": "Uber ride",
+      "amount": -12.5,
+      "category": "Transportation",
+      "type": "expense"
+    },
+    {
+      "id": 9,
+      "date": "2025-07-06",
+      "description": "Bonus payment",
+      "amount": 300,
+      "category": "Income",
+      "type": "income"
+    },
+    {
+      "id": 10,
+      "date": "2025-07-05",
+      "description": "Restaurant dinner",
+      "amount": -65.3,
+      "category": "Food & Drinks",
+      "type": "expense"
+    },
+    {
+      "id": 11,
+      "date": "2025-07-04",
+      "description": "Gym membership",
+      "amount": -29.99,
+      "category": "Health",
+      "type": "expense"
+    },
+    {
+      "id": 12,
+      "date": "2025-07-03",
+      "description": "Client payment",
+      "amount": 850,
+      "category": "Income",
+      "type": "income"
+    },
+    {
+      "id": 13,
+      "date": "2025-07-02",
+      "description": "Movie tickets",
+      "amount": -25.0,
+      "category": "Entertainment",
+      "type": "expense"
+    },
+    {
+      "id": 14,
+      "date": "2025-07-01",
+      "description": "Electricity bill",
+      "amount": -89.45,
+      "category": "Utilities",
+      "type": "expense"
+    },
+    {
+      "id": 15,
+      "date": "2025-06-30",
+      "description": "Refund",
+      "amount": 42.99,
+      "category": "Income",
+      "type": "income"
+    }
+  ]
+}

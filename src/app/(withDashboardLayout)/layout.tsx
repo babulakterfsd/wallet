@@ -133,9 +133,7 @@ export default function DashboardLayout({
 
       <div className={`p-4 lg:p-0 ${isSidebarOpen ? 'sm:ml-64' : ''} sm:ml-64`}>
         {/* dashboard content */}
-        <div className="h-screen flex justify-center items-center lg:w-2/3 mx-auto">
-          {children}
-        </div>
+        <div className="mx-auto lg:w-10/12 lg:pt-24 lg:pb-8">{children}</div>
       </div>
     </div>
   );
