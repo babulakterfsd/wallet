@@ -94,7 +94,7 @@ export default function DashboardLayout({
             </button>
           </div>
           <ul className="font-medium lg:mt-12">
-            <div className="absolute bottom-8 sm:bottom-10">
+            <div className="absolute bottom-12 sm:bottom-10">
               <li>
                 <Link
                   href="/"
