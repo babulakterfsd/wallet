@@ -5,6 +5,7 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { isLoggedIn, syncAuthState } from '@/lib/auth';
@@ -84,6 +85,7 @@ const Navbar = () => {
             </SheetTrigger>
 
             <SheetContent className="bg-white dark:bg-black dark:text-white flex flex-col justify-center">
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <div className="flex flex-col items-center space-y-4">
                 {menuItems.map((item) => (
                   <SheetClose asChild key={item.name}>

@@ -239,16 +239,7 @@ const Login = () => {
             <span className="text-sm">
               <FaDatabase />
             </span>
-            <span className="ml-2 text-sm">Fill With Demo Account</span>
-          </div>
-
-          {/* Demo credentials info */}
-          <div className="mt-2 text-center">
-            <p className="text-xs text-gray-500">
-              Demo credentials:{' '}
-              <span className="font-semibold">admin@gmail.com</span> /{' '}
-              <span className="font-semibold">Admin123</span>
-            </p>
+            <span className="text-sm">Demo Credentials</span>
           </div>
 
           {/* not registered */}
