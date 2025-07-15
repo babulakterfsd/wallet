@@ -7,10 +7,8 @@ export default function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Protect this route - should NOT be authenticated
   const { isLoading, isAuthenticated } = useRouteProtection(false);
 
-  // Show loading spinner while checking authentication
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -19,7 +17,6 @@ export default function AuthLayout({
     );
   }
 
-  // If authenticated, return null (redirect is happening)
   if (isAuthenticated) {
     return null;
   }

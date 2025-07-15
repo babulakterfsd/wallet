@@ -114,7 +114,6 @@ const Login = () => {
         });
         resetForm();
 
-        // Navigate to dashboard using router (no page reload)
         router.push('/dashboard');
       }
     } catch (error) {

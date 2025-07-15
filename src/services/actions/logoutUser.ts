@@ -14,6 +14,5 @@ export const logoutUser = (router: AppRouterInstance) => {
     icon: '👋',
   });
 
-  // Navigate to login page using router (no page reload)
   router.push('/login');
 };

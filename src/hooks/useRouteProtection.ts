@@ -14,13 +14,10 @@ export const useRouteProtection = (requireAuth: boolean = true) => {
       setIsAuthenticated(isLoggedIn);
 
       if (requireAuth && !isLoggedIn) {
-        // User should be logged in but isn't - redirect to login
         router.push('/login');
       } else if (!requireAuth && isLoggedIn) {
-        // User shouldn't be logged in but is - redirect to dashboard
         router.push('/dashboard');
       } else {
-        // User is in correct state, stop loading
         setIsLoading(false);
       }
     }
