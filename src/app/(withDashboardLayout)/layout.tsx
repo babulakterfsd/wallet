@@ -1,5 +1,6 @@
 'use client';
 
+import ThemeToggle from '@/components/theme/Themetoggle';
 import { useRouteProtection } from '@/hooks/useRouteProtection';
 import { getCurrentUser } from '@/lib/auth';
 import { logoutUser } from '@/services/actions/logoutUser';
@@ -147,6 +148,9 @@ export default function DashboardLayout({
                     Logout
                   </button>
                 </div>
+              </li>
+              <li className="cursor-pointer mt-4 text-offgray hover:text-primary dark:hover:text-primary group hover:transition-all duration-300 ease-in-out">
+                <ThemeToggle />
               </li>
             </div>
           </ul>

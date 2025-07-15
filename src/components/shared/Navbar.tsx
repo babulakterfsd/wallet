@@ -104,6 +104,9 @@ const Navbar = () => {
                 >
                   {isloggedIn ? 'Logout' : 'Login'}
                 </button>
+                <div>
+                  <ThemeToggle />
+                </div>
               </div>
             </SheetContent>
           </Sheet>
